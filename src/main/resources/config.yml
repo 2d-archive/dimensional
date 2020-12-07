@@ -1,0 +1,7 @@
+main-color: "#0a75cd"
+links:
+  discord: "discord.gg"
+
+chat-webhook:
+  token: ""
+  id: ""

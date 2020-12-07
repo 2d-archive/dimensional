@@ -1,0 +1,14 @@
+name: DimensionalUtils
+version: 1.0
+author: melike2d
+main: gg.dimensionalmc.utils.Dimensional
+api-version: 1.14
+
+commands:
+  dimensional:
+    description: "Base command for DimensionalUtils"
+    usage: "/dimensional <sub command>"
+  discord:
+    description: "Displays the Server's Discord Invite"
+    usage: "/discord"
+
