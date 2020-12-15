@@ -24,7 +24,7 @@ class DiscordCommand(private val plugin: Dimensional) : ICommand {
 
     val text = ChatColor.translateAlternateColorCodes('&', buildString {
       appendLine("Here's the link to our Discord Server")
-      appendLine("&9&l$discord&r")
+      append("&9&l$discord&r")
     })
 
     sender.sendMessage(text)
