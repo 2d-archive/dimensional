@@ -1,8 +1,8 @@
 name: DimensionalUtils
-version: 1.0
+version: 1.1
 author: melike2d
 main: gg.dimensionalmc.utils.Dimensional
-api-version: 1.14
+api-version: 1.18
 
 commands:
   dimensional:

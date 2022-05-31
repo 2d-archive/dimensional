@@ -10,26 +10,26 @@ import org.bukkit.event.player.AsyncPlayerChatEvent
 import java.util.*
 
 class ChatListener(private val plugin: Dimensional) : Listener {
-  @EventHandler
-  fun onMessage(evt: AsyncPlayerChatEvent) {
-    if (plugin.webhookClient == null) {
-      return
+    @EventHandler
+    fun onMessage(evt: AsyncPlayerChatEvent) {
+        if (plugin.webhookClient == null) {
+            return
+        }
+
+        val message = WebhookMessageBuilder()
+            .setUsername(evt.player.name)
+            .setAvatarUrl(getPlayerAvatar(evt.player.uniqueId))
+            .setContent(escape(evt.message))
+            .setAllowedMentions(AllowedMentions.none())
+
+        plugin.webhookClient!!.send(message.build())
     }
 
-    val message = WebhookMessageBuilder()
-      .setUsername(evt.player.name)
-      .setAvatarUrl(getPlayerAvatar(evt.player.uniqueId))
-      .setContent(escape(evt.message))
-      .setAllowedMentions(AllowedMentions.none())
-
-    plugin.webhookClient!!.send(message.build())
-  }
-
-  companion object {
-    /**
-     * Returns the URL of a player's avatar.
-     * @param uuid The player's ID.
-     */
-    fun getPlayerAvatar(uuid: UUID) = "https://minotar.net/avatar/$uuid"
-  }
+    companion object {
+        /**
+         * Returns the URL of a player's avatar.
+         * @param uuid The player's ID.
+         */
+        fun getPlayerAvatar(uuid: UUID) = "https://minotar.net/avatar/$uuid"
+    }
 }
